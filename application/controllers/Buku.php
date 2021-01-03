@@ -12,7 +12,8 @@ class Buku extends CI_Controller
 	{
 		$query = $this->db->get('BUKU')->result_array();
 		$data['allBuku'] = $query;
-		$this->load->view('LengkapiData/allBuk', $data, FALSE);
+		$data['res']=$query;
+		$this->load->view('BUK/fintlike', $data, FALSE);
 
 		// var_dump($data);die;
 	}
@@ -84,11 +85,20 @@ class Buku extends CI_Controller
 	}
 	public function like()
 	{
-		$this->db->like('Judul_Buku', 3);
+		$this->db->like('Judul_Buku', '');
 		$val = $this->db->get_where('BUKU')->result_array();
-		var_dump($val);
-		die;
+		$data['res'] = $val;
+		// var_dump($data);die;
+		if (empty($_GET)) {
+			$this->load->view('BUK/fintlike', $data);
+		} elseif (!empty($_GET['mog'])) {
+			$this->db->like('Judul_Buku', $_GET['key']);
+			$val = $this->db->get_where('BUKU')->result_array();
+			$data['res'] = $val;
+			$this->load->view('BUK/fintlikeajax', $data);
+		}
 	}
+
 	public function Input_Buku()
 	{
 		redirect('Siswa/form');
