@@ -82,6 +82,13 @@ class Buku extends CI_Controller
 
 		// var_dump($data);die;
 	}
+	public function like()
+	{
+		$this->db->like('Judul_Buku', 3);
+		$val = $this->db->get_where('BUKU')->result_array();
+		var_dump($val);
+		die;
+	}
 	public function Input_Buku()
 	{
 		redirect('Siswa/form');
