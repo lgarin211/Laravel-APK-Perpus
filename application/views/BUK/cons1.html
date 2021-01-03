@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="container bg-dark">
+        <div class="row">
+            <div class="card mb-3 col-md-6">
+                <img src="https://cdn1-production-images-kly.akamaized.net/vrQio49y-d_uvYvp5l_Ne7-tlYI=/0x0:4928x2777/640x360/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2400423/original/029514000_1541404431-annie-spratt-475539-unsplash.jpg"
+                    class="card-img-top" width="100%" height="250px" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Pinjam Buku</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional
+                        content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted"><a class="btn btn-primary" href="">Pinjam
+                                Buku</a></small></p>
+                </div>
+            </div>
+            <div class="card mb-3 col-md-6">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional
+                        content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted"><a class="btn btn-primary" href="">kembalikan
+                                Buku</a></small></p>
+                </div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRmzhD1MT893oPOPqBQf-xGIFbtQxxFdIjPg&usqp=CAU"
+                    class="card-img-bottom" width="100%" height="250px" alt="...">
+            </div>
+        </div>
+    </div>
+    <div class="bg-warning row">
+        <div class="col-md-4 text-center">
+            <div id="nor"></div>
+            <div id="nor2">
+                <button class="btn btn-primary" onclick="nos()">Cari Buku</button>
+            </div>
+            <div class="card" id="nor1">
+                <ul class="list-group">
+                    <li>
+                        <form class="d-flex list-group-item">
+                            <input class="form-control me-2" type="search" placeholder="ISBN" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form class="d-flex list-group-item">
+                            <input class="form-control me-2" type="search" placeholder="JUDUL BUKU" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form class="d-flex list-group-item">
+                            <input class="form-control me-2" type="search" placeholder="Penulis" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form class="d-flex list-group-item">
+                            <input class="form-control me-2" type="search" placeholder="Penerbit" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form class="d-flex list-group-item">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </li>
+                    <li class="list-group-item">
+                        <button class="btn btn-success" onclick="cas()">Batal</button>
+                    </li>
+                </ul>
+            </div>
+            <script>
+                var a1 = document.getElementById('nor1').innerHTML
+                var b2 = document.getElementById('nor2').innerHTML
+                document.getElementById('nor1').innerHTML = '';
+                function nos() {
+                    document.getElementById('nor').innerHTML = a1
+                    document.getElementById('nor2').innerHTML = ''
+                }
+                function cas() {
+                    document.getElementById('nor').innerHTML = b2
+
+                }
+            </script>
+        </div>
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div id="nma">
+            <button class="btn btn-primary" onclick="nm()">Cari Data Peminjam</button>
+        </div>
+
+        <div class="card">
+            <form action="">
+                <div class="input-group mb-3" id="nosa">
+                    <span class="input-group-text" id="basic-addon1">Barcode</span>
+                    <input on type="text" class="form-control" placeholder="Barcode" name="Barcode" aria-label="Barcode"
+                        aria-describedby="basic-addon1">
+                    <div id="sods">
+                        <a class="btn btn-primary" onclick="nam()">kirim</a>
+                    </div>
+                </div>
+                <div class="input-group mb-3" id="nosb">
+                    <span class="input-group-text" id="basic-addon1">ID Peminjam</span>
+                    <input type="text" class="form-control" placeholder="ID Peminjam" name="ID_Peminjam"
+                        aria-label="ID Peminjam" aria-describedby="basic-addon1">
+                    <div id="sods2">
+                        <a class="btn btn-primary" onclick="nan()">kirim</a>
+                    </div>
+                </div>
+                <div class="container text-center" id='ns'>
+                    <button type="submit" class="btn btn-primary">Cari</button>
+                </div>
+                <div class="container text-center" id='ns2'>
+                    <a onclick="mos()" class="btn btn-danger">Batal</a>
+                </div>
+
+                <script>
+                    var a = document.getElementById('nosa').innerHTML
+                    var c = document.getElementById('ns').innerHTML
+                    var d = document.getElementById('ns2').innerHTML
+                    var b = document.getElementById('nosb').innerHTML
+                    var e = document.getElementById('nma').innerHTML
+                    document.getElementById('nosa').innerHTML = ''
+                    document.getElementById('ns').innerHTML = ''
+                    document.getElementById('ns2').innerHTML = ''
+                    document.getElementById('nosb').innerHTML = ''
+                    function mos() {
+                        document.getElementById('nosa').innerHTML = ''
+                        document.getElementById('ns').innerHTML = ''
+                        document.getElementById('ns2').innerHTML = ''
+                        document.getElementById('nosb').innerHTML = ''
+                        document.getElementById('nma').innerHTML = e
+                        
+                    }
+                    function nm(params) {
+                        document.getElementById('nma').innerHTML = ''
+                        document.getElementById('nosa').innerHTML = a
+                        document.getElementById('ns2').innerHTML = d
+                    }
+                    function nam(params) {
+                        document.getElementById('sods').innerHTML = ''
+                        document.getElementById('nosb').innerHTML = b
+                    }
+                    function nan(params) {
+                        document.getElementById('sods2').innerHTML = ''
+                        document.getElementById('ns').innerHTML = c
+                    }
+                </script>
+            </form>
+        </div>
+        <div class="card">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

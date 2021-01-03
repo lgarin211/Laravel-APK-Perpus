@@ -11,6 +11,10 @@ class Auth extends CI_Controller
 
     public function index()
     {
+
+        if ($_SESSION['role_id'] == 1) {
+            redirect('admin');
+        }
         if ($this->session->userdata('email')) {
             redirect('user');
         }

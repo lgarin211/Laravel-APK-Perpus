@@ -52,6 +52,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'auth';
 $route['Pinjam'] = 'Buku/Pinjam';
 $route['Buku_Kembali'] = 'Buku/Kembali';
+$route['Kembali'] = 'Buku/Kembali';
 $route['Ad_buku'] = 'Buku/Input_Buku';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
