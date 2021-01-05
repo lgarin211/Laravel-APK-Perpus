@@ -66,7 +66,7 @@ class Siswa extends CI_Controller
 					'Judul_Buku' => $row['A'], // Insert data nis dari kolom A di excel
 					'Penerbit' => $row['B'], // Insert data nama dari kolom B di excel
 					'Penulis' => $row['C'], // Insert data nama dari kolom B di excel
-					'ISNB' => $row['D'], // Insert data jenis kelamin dari kolom C di excel
+					'ISBN' => $row['D'], // Insert data jenis kelamin dari kolom C di excel
 					'Gendre' => $row['E'], // Insert data alamat dari kolom D di excel
 					'Tgl_proses' => $row['F'], // Insert data alamat dari kolom D di excel
 					'Sumber' => $row['G'], // Insert data alamat dari kolom D di excel
@@ -78,7 +78,6 @@ class Siswa extends CI_Controller
 
 				));
 			}
-
 			$numrow++; // Tambah 1 setiap kali looping
 		}
 

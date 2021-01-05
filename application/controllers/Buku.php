@@ -12,9 +12,8 @@ class Buku extends CI_Controller
 	{
 		$query = $this->db->get('BUKU')->result_array();
 		$data['allBuku'] = $query;
-		$data['res']=$query;
+		$data['res'] = $query;
 		$this->load->view('BUK/fintlike', $data, FALSE);
-
 		// var_dump($data);die;
 	}
 	public function Pinjam()
@@ -83,20 +82,30 @@ class Buku extends CI_Controller
 
 		// var_dump($data);die;
 	}
-	public function like()
+	public function like($sampel = 'Judul_Buku')
 	{
-		$this->db->like('Judul_Buku', '');
-		$val = $this->db->get_where('BUKU')->result_array();
-		$data['res'] = $val;
-		// var_dump($data);die;
+		if (!empty($_GET['sampel'])) {
+			$sampel = $_GET['sampel'];
+		}
 		if (empty($_GET)) {
+			$this->db->like($sampel, '');
+			$val = $this->db->get_where('BUKU')->result_array();
+			$data['res'] = $val;
+			// var_dump($data);die;	
 			$this->load->view('BUK/fintlike', $data);
-		} elseif (!empty($_GET['mog'])) {
-			$this->db->like('Judul_Buku', $_GET['key']);
+		} elseif (!empty($_GET['mog'] == 'm')) {
+			$this->db->like($sampel, $_GET['key']);
 			$val = $this->db->get_where('BUKU')->result_array();
 			$data['res'] = $val;
 			$this->load->view('BUK/fintlikeajax', $data);
+		} elseif (!empty($_GET['mog'] == 'z')) {
+			$this->db->like($sampel, $_GET['key']);
+			$val = $this->db->get_where($_GET['tebel_query'])->result_array();
+			$data['res'] = $val;
+			$this->load->view('BUK/fintlikeajax', $data);
 		}
+
+				
 	}
 
 	public function Input_Buku()

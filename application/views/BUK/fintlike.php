@@ -24,32 +24,32 @@
                 <ul class="list-group">
                     <li>
                         <form class="d-flex list-group-item">
-                            <input class="form-control me-2" type="search" placeholder="ISBN" id="fintISBN" aria-label="Search">
+                            <input class="form-control me-2" type="search" placeholder="ISBN" onkeyup="domdom('ISBN')" id="ISBN" aria-label="Search">
                             <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
                         </form>
                     </li>
                     <li>
                         <form class="d-flex list-group-item">
-                            <input class="form-control me-2" type="search" placeholder="JUDUL BUKU" onkeyup="domdom()" class="fint_JUDUL_BUKU" id="fint_JUDUL_BUKU" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                            <input class="form-control me-2" type="search" placeholder="JUDUL BUKU" onkeyup="domdom('JUDUL_BUKU')" id="JUDUL_BUKU" aria-label="Search">
+                            <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
                         </form>
                     </li>
                     <li>
                         <form class="d-flex list-group-item">
-                            <input class="form-control me-2" type="search" placeholder="Penulis" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                            <input class="form-control me-2" type="search" placeholder="Penulis" onkeyup="domdom('Penulis')" id="Penulis" aria-label="Search">
+                            <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
                         </form>
                     </li>
                     <li>
                         <form class="d-flex list-group-item">
-                            <input class="form-control me-2" type="search" placeholder="Penerbit" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                            <input class="form-control me-2" type="search" placeholder="Penerbit" onkeyup="domdom('Penerbit')" id="Penerbit" aria-label="Search">
+                            <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
                         </form>
                     </li>
                     <li>
                         <form class="d-flex list-group-item">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                            <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
                         </form>
                     </li>
                     <li class="list-group-item">
@@ -72,18 +72,18 @@
 
                 }
             </script>
-            <input type="hidden" id="nosi" value="<?= base_url('/Buku/like?mog=m&key=') ?>">
+            <input type="hidden" id="nosi" value="<?= base_url('/Buku/like?tebel_query=BUKU&key=') ?>">
             <script>
                 // const as=document.querySelector('.fint_JUDUL_BUKU');
                 var base_url = document.getElementById('nosi').value;
 
                 //event add 
-                function domdom() {
-                    var keywpr = document.getElementById('fint_JUDUL_BUKU');
+                function domdom(si) {
+                    var keywpr = document.getElementById(si);
                     var contain = document.getElementById('dows');
-
-                    fetch(base_url +
-                            keywpr.value)
+                    var link_query = base_url +keywpr.value + '&mog=z&sampel=' + si
+                    // alert(link_query)
+                    fetch(link_query)
                         .then((response) => response.text())
                         .then((response) => (contain.innerHTML = response));
                     //val ajax Kurian WPU Eps13
@@ -104,14 +104,15 @@
                 </thead>
                 <tbody class="" id="dows">
                     <? foreach ($res as $key => $value) : if (!($value['OutSide'] == $value['Stok'])) : ?>
-                        <tr>
-                            <th scope="row"><?= $value['ID_BUKU'] ?></th>
-                            <td><?= $value['Judul_Buku'] ?></td>
-                            <td><?= $value['ISNB'] ?></td>
-                            <td>@mdo</td>
-                            <td><a class="btn btn-primary" href="<?= base_url('Pinjam?buku=' . $value['ID_BUKU'] . '&peminjam=' . $_SESSION['id']); ?>">pinjam</a></td>
-                        </tr>
-                    <?endif; endforeach; ?>
+                            <tr>
+                                <th scope="row"><?= $value['ID_BUKU'] ?></th>
+                                <td><?= $value['Judul_Buku'] ?></td>
+                                <td><?= $value['ISBN'] ?></td>
+                                <td>@mdo</td>
+                                <td><a class="btn btn-primary" href="<?= base_url('Pinjam?buku=' . $value['ID_BUKU'] . '&peminjam=' . $_SESSION['id']); ?>">pinjam</a></td>
+                            </tr>
+                    <? endif;
+                    endforeach; ?>
                 </tbody>
             </table>
         </div>
