@@ -84,9 +84,7 @@ class Buku extends CI_Controller
 	}
 	public function like($sampel = 'Judul_Buku')
 	{
-		if (!empty($_GET['sampel'])) {
-			$sampel = $_GET['sampel'];
-		}
+		
 		if (empty($_GET)) {
 			$this->db->like($sampel, '');
 			$val = $this->db->get_where('BUKU')->result_array();
@@ -100,12 +98,10 @@ class Buku extends CI_Controller
 			$this->load->view('BUK/fintlikeajax', $data);
 		} elseif (!empty($_GET['mog'] == 'z')) {
 			$this->db->like($sampel, $_GET['key']);
-			$val = $this->db->get_where($_GET['tebel_query'])->result_array();
+			$val = $this->db->get_where('BUKU')->result_array();
 			$data['res'] = $val;
 			$this->load->view('BUK/fintlikeajax', $data);
 		}
-
-				
 	}
 
 	public function Input_Buku()
