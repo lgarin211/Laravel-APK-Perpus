@@ -36,6 +36,22 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function adminsas()
+    {
+        $data['title'] = 'Go Book-Admin';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $query = $this->db->get('BUKU')->result_array();
+        $data['allBuku'] = $query;
+        $data['res'] = array_reverse($query);
+        // var_dump($_SESSION);die;
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('BUK/fintlike', $data, FALSE);
+        $this->load->view('templates/footer');
+        // var_dump($data);die;
+    }
+
 
     public function roleAccess($role_id)
     {
